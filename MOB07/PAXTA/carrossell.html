@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.carrossel {
+    position: relative;
+    max-width: 640px; margin: 20px auto;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.carrossel img { width: 100%; height: 320px; object-fit: cover; display: block; }
+.btn-car {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.5); color: white;
+    border: none; width: 44px; height: 44px;
+    border-radius: 50%; font-size: 1.6rem;
+    cursor: pointer; font-family: inherit;
+}
+.btn-car:hover { background: rgba(0,0,0,0.8); }
+.prev { left: 12px; }
+.next { right: 12px; }
+</style>
+</head>
+<body>
+<div class="carrossel">
+    <img id="slide" src="https://picsum.photos/id/1015/800/400" alt="Slide">
+    <button class="btn-car prev" onclick="anterior()">‹</button>
+    <button class="btn-car next" onclick="proxima()">›</button>
+</div>
+<p style="text-align:center; color:#64748b; font-size:0.85rem; margin-top:10px;">
+    Slide <span id="atual">1</span> de 3
+</p>
+<script>
+const imagens = [
+    "jena.png",
+    "sako.jpg",
+    ""
+];
+let indice = 0;
+function atualizar() {
+    document.getElementById("slide").src = imagens[indice];
+    document.getElementById("atual").innerText = indice + 1;
+}
+function proxima() { indice = (indice + 1) % imagens.length; atualizar(); }
+function anterior() { indice = (indice - 1 + imagens.length) % imagens.length; atualizar(); }
+</script>
+</body>
+</html>

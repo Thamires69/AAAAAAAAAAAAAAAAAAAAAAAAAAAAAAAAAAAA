@@ -1,0 +1,17 @@
+.carrossel {
+    position: relative;
+    max-width: 640px; margin: 20px auto;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.carrossel img { width: 100%; height: 320px; object-fit: cover; display: block; }
+.btn-car {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.5); color: white;
+    border: none; width: 44px; height: 44px;
+    border-radius: 50%; font-size: 1.6rem;
+    cursor: pointer; font-family: inherit;
+}
+.btn-car:hover { background: rgba(0,0,0,0.8); }
+.prev { left: 12px; }
+.next { right: 12px; }
